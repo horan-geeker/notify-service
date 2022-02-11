@@ -44,10 +44,10 @@ jobs:
         go-version: 1.17
 
     - name: Build Go
-      run: go build -v ./...
+      run: go build -v .
 
     - name: Test Go
-      run: go test -v ./...
+      run: go test -v
 
     # Build Docker
     - name: Build Docker image
