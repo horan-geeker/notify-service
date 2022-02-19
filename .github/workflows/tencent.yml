@@ -24,7 +24,7 @@ on:
 env:
   TKE_DOCKER_HUB: ccr.ccs.tencentyun.com
   TKE_IMAGE_URL: ccr.ccs.tencentyun.com/hejunwei/notify-service
-  TKE_REGION: ap-guangzhou
+  TKE_REGION: ap-chengdu
   TKE_CLUSTER_ID: cls-kj6srqvx
   DEPLOYMENT_NAME: deployment-notify-service
 
