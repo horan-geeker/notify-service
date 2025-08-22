@@ -57,10 +57,15 @@ jobs:
         -e 's/ALIYUN_ACCESS_KEY_SECRET=/ALIYUN_ACCESS_KEY_SECRET=${{secrets.ALIYUN_ACCESS_KEY_SECRET}}/'
         -e 's/ALIYUN_SMS_SIGN_NAME=/ALIYUN_SMS_SIGN_NAME=${{secrets.ALIYUN_SMS_SIGN_NAME}}/'
         -e 's/ALIYUN_SMS_TEMPLATE_CODE=/ALIYUN_SMS_TEMPLATE_CODE=${{secrets.ALIYUN_SMS_TEMPLATE_CODE}}/' .env.example > .env
+
+    - name: Export Date Env
+        id: CURRENT_DATE
+        run: echo "::set-output name=date::$(TZ=Asia/Shanghai date +'%Y-%m-%d-%H-%M-%S')"
+    
     # Build Docker
     - name: Build Docker image
       run: |        
-        docker build -t ${TKE_IMAGE_URL}:${GITHUB_SHA} .
+        docker build -t ${TKE_IMAGE_URL}:${{steps.CURRENT_DATE.outputs.date}} .
 
     - name: Login TKE Registry
       run: |
