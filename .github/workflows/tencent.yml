@@ -59,8 +59,8 @@ jobs:
         -e 's/ALIYUN_SMS_TEMPLATE_CODE=/ALIYUN_SMS_TEMPLATE_CODE=${{secrets.ALIYUN_SMS_TEMPLATE_CODE}}/' .env.example > .env
 
     - name: Export Date Env
-        id: CURRENT_DATE
-        run: echo "::set-output name=date::$(TZ=Asia/Shanghai date +'%Y-%m-%d-%H-%M-%S')"
+      id: CURRENT_DATE
+      run: echo "::set-output name=date::$(TZ=Asia/Shanghai date +'%Y-%m-%d-%H-%M-%S')"
     
     # Build Docker
     - name: Build Docker image
