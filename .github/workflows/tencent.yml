@@ -74,7 +74,7 @@ jobs:
     # Push the Docker image to TKE Registry
     - name: Publish
       run: |
-        docker push ${TKE_IMAGE_URL}:${GITHUB_SHA}
+        docker push ${TKE_IMAGE_URL}:${{steps.CURRENT_DATE.outputs.date}}
 
     # - name: Set up Kustomize
     #   run: |
